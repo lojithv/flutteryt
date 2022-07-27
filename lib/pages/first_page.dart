@@ -18,9 +18,17 @@ class _FirstPageState extends State<FirstPage> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [CustOutlineBtn(onTap: (){
-              print("hello");
-            },label: "Test1", disabled: true,), const CustOutlineBtn(onTap: null,label: "Test2", disabled: false)],
+            children: [
+              CustOutlineBtn(
+                onTap: () {
+                  print("hello");
+                },
+                label: "Test1",
+                disabled: false,
+              ),
+              const CustOutlineBtn(onTap: null, label: "Test2", disabled: true),
+              const CustOutlineBtn(onTap: null, label: "Test2", disabled: false),
+            ],
           )
         ],
       ),

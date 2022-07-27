@@ -25,17 +25,20 @@ class _CustOutlineBtnState extends State<CustOutlineBtn> {
       child: Text(widget.disabled ? widget.label : "hello"),
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
-          if (states.contains(MaterialState.disabled)) {
-            return Colors.grey;
+          if (states.contains(MaterialState.disabled) && widget.disabled) {
+            return Colors.grey.withOpacity(0.5);
+          } else if (!widget.disabled) {
+            return Colors.red.withOpacity(0.5);
+          } else {
+            return Colors.red;
           }
-          return Colors.red;
         }),
         side: MaterialStateProperty.resolveWith((states) {
           Color _borderColor;
-          if (states.contains(MaterialState.disabled)) {
-            _borderColor = Colors.grey;
-          } else if (states.contains(MaterialState.pressed)) {
-            _borderColor = Colors.deepOrange;
+          if (states.contains(MaterialState.disabled) && widget.disabled) {
+            _borderColor = Colors.grey.withOpacity(0.5);
+          } else if (!widget.disabled) {
+            _borderColor = Colors.red.withOpacity(0.5);
           } else {
             _borderColor = Colors.red;
           }
