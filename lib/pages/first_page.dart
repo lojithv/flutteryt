@@ -10,6 +10,8 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> {
+  bool test = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,12 +24,15 @@ class _FirstPageState extends State<FirstPage> {
               CustOutlineBtn(
                 onTap: () {
                   print("hello");
+                  setState(() {
+                    test = !test;
+                  });
                 },
-                label: "Test1",
-                disabled: false,
+                label: test ? "Test1" : "test2",
+                disabled: test,
               ),
-              const CustOutlineBtn(onTap: null, label: "Test2", disabled: true),
-              const CustOutlineBtn(onTap: null, label: "Test2", disabled: false),
+              CustOutlineBtn(onTap: null, label: "Test2", disabled: test),
+              CustOutlineBtn(onTap: null, label: "Test2", disabled: test),
             ],
           )
         ],

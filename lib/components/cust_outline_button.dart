@@ -22,7 +22,7 @@ class _CustOutlineBtnState extends State<CustOutlineBtn> {
   Widget build(BuildContext context) {
     return OutlinedButton(
       onPressed: widget.onTap,
-      child: Text(widget.disabled ? widget.label : "hello"),
+      child: Text(widget.label),
       style: ButtonStyle(
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled) && widget.disabled) {
